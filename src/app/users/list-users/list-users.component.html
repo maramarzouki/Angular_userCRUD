@@ -1,0 +1,32 @@
+
+<button class="btn btn-success" [routerLink]="['/users', 'adduser']">
+    Add a user
+    </button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.name }}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <td><button
+          class="btn btn-primary"
+          [routerLink]="['/users', 'editUser', user.id]" >
+            Edit
+          </button>
+        </td>
+        <td><button class="btn btn-danger" (click)="delUser(user.id)" >Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
